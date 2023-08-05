@@ -3,6 +3,9 @@ package com.bubble.arts.jobscheduler.api;
 import java.util.Collection;
 import java.util.function.Consumer;
 
+/**
+ * Can schedule jobs that run on separate threads.
+ */
 public interface JobScheduler {
 	/**
 	 * @return all the job infos

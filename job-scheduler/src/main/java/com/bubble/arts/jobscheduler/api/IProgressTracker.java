@@ -23,7 +23,7 @@ public interface IProgressTracker {
 	public void incrementByOne();
 	
 	/**
-	 * @return the current progress
+	 * @return the current progress, which will be a number between 0 and 100
 	 */
 	public int getProgress();
 }
