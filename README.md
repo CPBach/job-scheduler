@@ -3,8 +3,8 @@
 Job-scheduler is a simple library for easily scheduling background jobs without 
 having to deal with progress tracking, Futures, Thread pools, etc. yourself. Currently this library does not support distributed job scheduling. It can be easily integrated into your Spring Boot project.
 
-To read more about how it was created feel free to read the article on 
-[article](https://stefanbabel.de/job-scheduler-spring-boot)
+To read more about how it was created feel free to read the [blog post](https://stefanbabel.de/job-scheduler-spring-boot). 
+
 
 ## Adding job-scheduler to your build and using it
 
