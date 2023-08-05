@@ -1,14 +1,9 @@
 # Job-scheduler: A simple job-scheduler library for Java / Spring Boot
 
 Job-scheduler is a simple library for easily scheduling background jobs without 
-having to deal with progress tracking, Futures, Thread pools, etc. yourself.
+having to deal with progress tracking, Futures, Thread pools, etc. yourself. Currently this library does not support distributed job scheduling. It can be easily integrated into your Spring Boot project.
 
-Currently this library does not support distributed job scheduling.
-
-It can be easily integrated into your Spring Boot project.
-
-To read more about how it was create feel free to read the article on 
-
+To read more about how it was created feel free to read the article on 
 [article]: https://stefanbabel.de/job-scheduler-spring-boot
 
 ## Adding job-scheduler to your build and using it
@@ -35,25 +30,13 @@ dependencies {
 To use it in a REST controller e.g. in Spring boot :
 
 ```kotlin
-    /**
-     * This will be injected by Spring Boot automatically upon
-     * initialization.
-     */
     @Autowired
     private lateinit var jobScheduler: JobScheduler
 
-	@PostMapping("/job/{jobName}")
+    @PostMapping("/job/{jobName}")
     fun startJob(@PathVariable("jobName") jobName: String): String {
         return jobScheduler.scheduleJob(jobName, "Some job description") {progressTracker ->
-            // Create a random delay for each step-unit.
-            val delay = Random.nextInt(1, 400)
-            var counter = 0
-            while (counter < 100) {
-                // Simulate some work and update progress tracker ...
-                Thread.sleep(delay.toLong())
-                progressTracker.setCurrentProgress(counter++)
-            }
-            progressTracker.setCurrentProgress(100)
+            // Do work here and inform progressTracker on current status.
         }
     }
 ```
