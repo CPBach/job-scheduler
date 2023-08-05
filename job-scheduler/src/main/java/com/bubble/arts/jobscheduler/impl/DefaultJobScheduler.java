@@ -1,4 +1,4 @@
-package com.bubble.arts.jobtracker.impl;
+package com.bubble.arts.jobscheduler.impl;
 
 import java.util.Collection;
 import java.util.HashMap;
@@ -7,10 +7,10 @@ import java.util.UUID;
 import java.util.concurrent.CompletableFuture;
 import java.util.function.Consumer;
 
-import com.bubble.arts.jobtracker.api.IProgressTracker;
-import com.bubble.arts.jobtracker.api.JobInfo;
-import com.bubble.arts.jobtracker.api.JobScheduler;
-import com.bubble.arts.jobtracker.api.TrackableSupplier;
+import com.bubble.arts.jobscheduler.api.IProgressTracker;
+import com.bubble.arts.jobscheduler.api.JobInfo;
+import com.bubble.arts.jobscheduler.api.JobScheduler;
+import com.bubble.arts.jobscheduler.api.TrackableSupplier;
 
 /**
  * A primitive implementation of a job scheduler.

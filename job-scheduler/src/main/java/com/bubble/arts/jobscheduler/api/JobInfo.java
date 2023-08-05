@@ -1,4 +1,4 @@
-package com.bubble.arts.jobtracker.api;
+package com.bubble.arts.jobscheduler.api;
 
 /**
  * Holds info about a job.

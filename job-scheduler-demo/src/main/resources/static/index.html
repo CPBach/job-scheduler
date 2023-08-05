@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Job scheduler demo</title>
+    <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+    <script>
+        var jobCounter = 1;
+        function pollLogic() {
+            fetch("/jobStatus")
+            .then((response) => response.json())
+            .then((j) => {
+                console.log(j);
+                var div = document.getElementById('running-jobs');
+                div.innerHTML = '';
+
+                for (const entry of j) {
+                    div.innerHTML += 'Job name: ' + entry.jobName + ' Progress: ' + entry.progress + '%<br>';
+                    d3.select("#running-jobs").append("svg")
+                      .style("background-color", 'green')
+                      .attr("width", entry.progress * 2)
+                      .attr("height", 20);
+                div.innerHTML += '<br>';
+                }});
+
+        }
+
+        function scheduleJob() {
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "/job/Job" + jobCounter++, true);
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            xhr.send("");
+            pollLogic();
+        }
+
+        var handler = setInterval(pollLogic, 500);
+    </script>
+</head>
+<body>
+  <h1>Running jobs:</h1>
+  <div id="running-jobs"></div>
+  <h1>Schedule new job:</h1>
+  <div id="schedule-jobs">
+    <button type="button" onclick="scheduleJob()">Schedule a new job</button>
+  </div>
+</body>
+</html>

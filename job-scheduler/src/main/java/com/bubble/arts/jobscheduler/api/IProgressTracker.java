@@ -1,4 +1,4 @@
-package com.bubble.arts.jobtracker.api;
+package com.bubble.arts.jobscheduler.api;
 
 /**
  * Tracker of current progress of a task.

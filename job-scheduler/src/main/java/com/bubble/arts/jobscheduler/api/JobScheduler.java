@@ -1,4 +1,4 @@
-package com.bubble.arts.jobtracker.api;
+package com.bubble.arts.jobscheduler.api;
 
 import java.util.Collection;
 import java.util.function.Consumer;

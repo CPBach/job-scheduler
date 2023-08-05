@@ -1,4 +1,4 @@
-package com.bubble.arts.jobtracker;
+package com.bubble.arts.jobscheduler;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -6,8 +6,8 @@ import static org.junit.Assert.fail;
 
 import org.junit.Test;
 
-import com.bubble.arts.jobtracker.api.JobScheduler;
-import com.bubble.arts.jobtracker.impl.DefaultJobScheduler;
+import com.bubble.arts.jobscheduler.api.JobScheduler;
+import com.bubble.arts.jobscheduler.impl.DefaultJobScheduler;
 
 /**
  * Simple test for our job trackers.
@@ -16,8 +16,8 @@ public class JobSchedulerTest {
 	
 	@Test
 	public void testJobScheduler() throws InterruptedException {
-		final JobScheduler jobTracker = new DefaultJobScheduler();
-		jobTracker.scheduleJob("Job 1", "Some computation for job 1.", r -> {
+		final JobScheduler jobScheduler = new DefaultJobScheduler();
+		jobScheduler.scheduleJob("Job 1", "Some computation for job 1.", r -> {
 			for (int i = 0; i <= 10; i++) {
 				r.setCurrentProgress(i * 10);
 				try {
@@ -28,7 +28,7 @@ public class JobSchedulerTest {
 			}
 			return "DONE";
 		});
-		jobTracker.scheduleJob("Job 2", "Another job.", r -> {
+		jobScheduler.scheduleJob("Job 2", "Another job.", r -> {
 			for (int i = 0; i < 100; i++) {
 				r.incrementByOne();
 				try {
@@ -42,11 +42,11 @@ public class JobSchedulerTest {
 		}, (t) -> {
 			assertEquals("DONE", t);
 		});
-		assertTrue(jobTracker.busy());
-		while (jobTracker.busy()) {
+		assertTrue(jobScheduler.busy());
+		while (jobScheduler.busy()) {
 			Thread.sleep(50);
-			jobTracker.printJobStatus();
-			assertEquals(2, jobTracker.getJobInfos().size());
+			jobScheduler.printJobStatus();
+			assertEquals(2, jobScheduler.getJobInfos().size());
 		}
 	}
 }

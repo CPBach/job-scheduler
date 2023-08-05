@@ -1,6 +1,6 @@
-package com.bubble.arts.jobtracker.impl;
+package com.bubble.arts.jobscheduler.impl;
 
-import com.bubble.arts.jobtracker.api.IProgressTracker;
+import com.bubble.arts.jobscheduler.api.IProgressTracker;
 
 public class DefaultProgressTracker implements IProgressTracker{
 	private int currentProgress = 0;

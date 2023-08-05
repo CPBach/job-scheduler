@@ -1,4 +1,4 @@
-package com.bubble.arts.jobtracker.api;
+package com.bubble.arts.jobscheduler.api;
 
 /**
  * Simple interface where we can track the progress of a job.

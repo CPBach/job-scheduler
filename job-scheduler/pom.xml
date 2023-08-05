@@ -6,11 +6,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.bubble.arts</groupId>
-	<artifactId>jobtracker</artifactId>
-	<version>1.0.0-SNAPSHOT</version>
+	<artifactId>job-scheduler</artifactId>
+	<version>1.0.3-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>jobtracker</name>
+	<name>job-scheduler</name>
 	<url>https://www.stefanbabel.de</url>
 
 	<properties>
