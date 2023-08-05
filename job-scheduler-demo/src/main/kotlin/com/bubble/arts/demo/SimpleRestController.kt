@@ -21,11 +21,12 @@ class SimpleRestController {
     @PostMapping("/job/{jobName}")
     fun startJob(@PathVariable("jobName") jobName: String): String {
         return jobScheduler.scheduleJob(jobName, "") {pt ->
+            // Create a random delay for each step-unit.
             val delay = Random.nextInt(1, 400)
             var counter = 0
             println("Creating new job with delay $delay.")
             while (counter < 100) {
-                // Simulate some work...
+                // Simulate some work and update progress tracker ...
                 Thread.sleep(delay.toLong())
                 pt.setCurrentProgress(counter++)
             }
