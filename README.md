@@ -43,4 +43,4 @@ To use it in a REST controller e.g. in Spring boot :
 
 ## Links
 
--   [Article on this library](https://stefanbabel.de/job-scheduler-spring-boot)
+-   [Article on this library](https://www.stefanbabel.de/a-simple-job-scheduler-library-for-spring-boot/)
